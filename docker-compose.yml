@@ -1,0 +1,34 @@
+---
+version: '3'
+services:
+  web:
+    build: ./web
+    image: docko/ha-httpd
+    deploy:
+      replicas: 1
+    ports:
+     - '80:80'
+     - '443:443'
+    expose:
+      - '80'
+      - '443'
+  app1:
+    build: ./app
+    image: docko/pyapp
+    expose:
+      - '8888'
+  app2:
+    build: ./app
+    image: docko/pyapp
+    expose:
+      - '8888'
+  app3:
+    build: ./app
+    image: docko/pyapp
+    expose:
+      - '8888'
+  app4:
+    build: ./app
+    image: docko/pyapp
+    expose:
+      - '8888'
